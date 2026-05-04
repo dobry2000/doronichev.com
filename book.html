@@ -193,7 +193,9 @@
                 <h3>Оформить предзаказ</h3>
                 <p>Оставьте свой email, чтобы первыми получить доступ к предзаказу и эксклюзивную главу до официального релиза.</p>
                 
-                <form id="preorder-form" action="https://script.google.com/macros/s/AKfycbzgslpdnMsdI7tNb1qaKYqU_l2j7xre-MgZCNaA6Pf7-FzIuR6V41FN_kSwtIsPQRn0Qg/exec" method="POST">
+                <form id="preorder-form" name="preorder" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" netlify>
+                    <input type="hidden" name="form-name" value="preorder">
+                    <p hidden><label>Don't fill this out: <input name="bot-field"></label></p>
                     <input type="text" name="name" placeholder="Ваше имя" required>
                     <input type="email" name="email" placeholder="Email" required>
                     <button type="submit">Жду книгу</button>
@@ -213,22 +215,31 @@
         const successMsg = document.getElementById('success-msg');
         const btn = form.querySelector('button');
 
+        const encode = (data) =>
+            Object.keys(data)
+                .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+                .join('&');
+
         form.addEventListener('submit', e => {
             e.preventDefault();
             btn.textContent = 'Отправка...';
             btn.style.opacity = '0.7';
 
-            fetch(form.action, {
+            const formData = new FormData(form);
+            const data = {};
+            formData.forEach((value, key) => { data[key] = value; });
+
+            fetch('/', {
                 method: 'POST',
-                body: new FormData(form),
-            }).then(
-                response => {
-                    form.reset();
-                    btn.style.display = 'none';
-                    form.querySelectorAll('input').forEach(input => input.style.display = 'none');
-                    successMsg.style.display = 'block';
-                }
-            ).catch(error => {
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: encode(data),
+            }).then(response => {
+                if (!response.ok) throw new Error('Network response was not ok');
+                form.reset();
+                btn.style.display = 'none';
+                form.querySelectorAll('input').forEach(input => input.style.display = 'none');
+                successMsg.style.display = 'block';
+            }).catch(error => {
                 btn.textContent = 'Ошибка. Попробуйте еще раз';
                 btn.style.opacity = '1';
                 console.error('Error!', error.message);
