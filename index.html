@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Andrey Doronichev</title>
+  <meta name="description" content="Built billion-user products at Google. Now building an AI-native biopharma company.">
+  <style>
+    :root {
+      --bg:#fff; --fg:#0a0a0a; --muted:#6b7280; --line:#e5e7eb;
+      --max: 920px;
+      --blue:#0a84ff; /* bright, Apple-like blue */
+      --icon-bg:#f2f2f2;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);
+      font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:var(--max);margin:0 auto;padding:28px}
+    header{padding:60px 0 28px}
+    .top{display:grid;grid-template-columns:1fr;gap:28px;align-items:center}
+    .avatar{width:160px;height:160px;border-radius:50%;overflow:hidden;
+      box-shadow:0 10px 30px rgba(0,0,0,.08)}
+    .avatar img{width:100%;height:100%;object-fit:cover;display:block}
+    h1{font-size:42px;line-height:1.05;margin:0 -2px 8px;font-weight:700;letter-spacing:-.02em}
+    .lead{font-size:20px;line-height:1.55;color:var(--muted);margin:6px 0 0}
+    .cta{margin-top:20px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+    .btn-primary{
+      display:inline-flex;align-items:center;justify-content:center;
+      padding:12px 18px;border-radius:14px;border:1px solid var(--blue);
+      background:var(--blue);color:#fff;font-weight:700;letter-spacing:.01em;
+      box-shadow:0 6px 16px rgba(10,132,255,0.25);
+      transition:transform .12s ease, box-shadow .2s ease, filter .2s ease;
+    }
+    .btn-primary:hover{transform:translateY(-1px);box-shadow:0 10px 22px rgba(10,132,255,0.35)}
+    .cta-icons{display:flex;align-items:center;gap:10px}
+    .icon-btn{
+      width:40px;height:40px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;
+      background:var(--icon-bg);border:1px solid var(--line);
+      transition:filter .2s ease, background .2s ease;
+    }
+    .icon-btn:hover{filter:brightness(0.95)}
+    .icon-btn img, .icon-btn svg{width:20px;height:20px;display:block}
+    .logos{border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+      padding:18px 0;margin:34px 0 8px;display:flex;gap:28px;flex-wrap:wrap;justify-content:center;align-items:center}
+    /* 30% smaller than prior (which was 28px/32px). Use 20px/22px */
+    .logos img{height:20px;object-fit:contain;filter:grayscale(100%) brightness(55%);opacity:.5;transition:opacity .2s, filter .2s}
+    .logos img:hover{opacity:.9;filter:grayscale(60%) brightness(75%)}
+    section{padding:28px 0}
+    h2{font-size:14px;text-transform:uppercase;letter-spacing:.16em;color:var(--muted);margin:0 0 14px}
+    ul.clean{margin:0;padding:0;list-style:none}
+    ul.clean li{padding:6px 0;border-bottom:1px solid var(--line)}
+    ul.clean li:last-child{border-bottom:none}
+    .exp{display:grid;gap:8px;margin-bottom:14px}
+    .role{font-weight:700}
+    footer{padding:36px 0 60px;color:var(--muted);font-size:14px}
+    @media (min-width:960px){
+      .top{grid-template-columns:1.6fr .8fr}
+      .avatar{justify-self:end;width:200px;height:200px;order:2}
+      h1{font-size:54px}
+      .lead{font-size:22px}
+      .logos img{height:22px}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="top">
+        <div class="avatar"><img src="andrey.jpg" alt="Andrey Doronichev portrait"></div>
+        <div>
+          <h1>Andrey Doronichev</h1>
+          <p class="lead">Built billion-user products at <a href="https://www.google.com" target="_blank">Google</a>.<br>Now building an <a href="https://www.optic.inc" target="_blank">AI-native biopharma</a> company.</p>
+          <div class="cta">
+            <a class="btn-primary" href="https://intro.co/andreydoronichev" target="_blank" aria-label="Book consulting">Book consulting</a>
+            <span class="cta-icons">
+              <a class="icon-btn" href="https://www.linkedin.com/in/doronichev" target="_blank" aria-label="LinkedIn">
+                <img src="icon-linkedin.svg" alt="LinkedIn">
+              </a>
+              <a class="icon-btn" href="https://www.instagram.com/dobry" target="_blank" aria-label="Instagram">
+                <img src="icon-instagram.svg" alt="Instagram">
+              </a>
+              <a class="icon-btn" href="https://blog.doronichev.com" target="_blank" aria-label="Blog">
+                <img src="icon-substack.svg" alt="Substack">
+              </a>
+            </span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="logos" aria-label="Trusted by">
+      <a href="https://www.google.com" target="_blank"><img src="google.png" alt="Google"></a>
+      <a href="https://www.youtube.com" target="_blank"><img src="youtube.png" alt="YouTube"></a>
+      <a href="https://www.kleinerperkins.com" target="_blank"><img src="kleiner.png" alt="Kleiner Perkins"></a>
+      <a href="https://greylock.com" target="_blank"><img src="greylock.png" alt="Greylock"></a>
+    </div>
+
+    <section>
+      <h2>What I Can Help With</h2>
+      <ul class="clean">
+        <li>Building high-performing product teams</li>
+        <li>Developing product and AI strategies</li>
+        <li>Career coaching for PMs</li>
+        <li>Fundraising for startups</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Experience</h2>
+      <div class="exp">
+        <div class="role">Founder &amp; CEO, <a href="https://www.optic.inc" target="_blank">Optic</a></div>
+        <div>Building AI-native biopharma. Raised $12M from Kleiner Perkins and Greylock. Trusted by Stanford, Puretech, Southern Research, Innoviva, UNC, and more.</div>
+      </div>
+      <div class="exp">
+        <div class="role">Director of Product, <a href="https://www.google.com" target="_blank">Google</a></div>
+        <div>Led an org of 200+ across PM, UX, and Engineering. Founding PM for Google’s VR/AR group. Launched Cardboard, Daydream, Tilt Brush, <a href="https://www.youtube.com" target="_blank">YouTube</a> VR, and Stadia.</div>
+      </div>
+      <div class="exp">
+        <div class="role">Head of Mobile, <a href="https://www.youtube.com" target="_blank">YouTube</a></div>
+        <div>Launched the YouTube app for iOS, Android, and mobile web. Negotiated key distribution deals, including with Apple. Scaled the product from 0 to 1B+ users.</div>
+      </div>
+      <div class="exp">
+        <div class="role">Angel Investor &amp; Advisor</div>
+        <div>Backed Coda, Grammarly, PandaDoc, Titan, Reface, FlutterFlow, Chatfuel, DressX, and others.</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Community</h2>
+      <div>Author of the <a href="https://www.instagram.com/dobry" target="_blank">@dobry</a> blog. Co-founder of the <a href="https://www.mesto.co" target="_blank">Mesto.co</a> online community and <a href="https://www.nytimes.com/2022/05/23/technology/russia-tech-engineers.html" target="_blank">DobryDom</a> co-living in San Francisco. Certified yoga teacher.</div>
+    </section>
+
+    <footer>
+      <div>© <span id="y"></span> Andrey Doronichev</div>
+    </footer>
+  </div>
+  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+</body>
+</html>
