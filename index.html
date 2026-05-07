@@ -23,6 +23,21 @@
       box-shadow:0 10px 30px rgba(0,0,0,.08)}
     .avatar img{width:100%;height:100%;object-fit:cover;display:block}
     h1{font-size:42px;line-height:1.05;margin:0 -2px 8px;font-weight:700;letter-spacing:-.02em}
+    .book-promo{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:6px 12px 6px 6px;margin:0 0 14px;
+      background:#f5f3ff;border:1px solid #e9e4ff;border-radius:999px;
+      font-size:13px;font-weight:500;color:#4c1d95;letter-spacing:.01em;
+      transition:background .2s ease, border-color .2s ease, transform .12s ease;
+    }
+    .book-promo:hover{background:#ede9fe;border-color:#d8ceff;transform:translateY(-1px)}
+    .book-promo-badge{
+      display:inline-block;padding:2px 8px;border-radius:999px;
+      background:#7c3aed;color:#fff;font-size:11px;font-weight:700;
+      text-transform:uppercase;letter-spacing:.06em;
+    }
+    .book-promo-arrow{font-weight:700;transition:transform .2s ease}
+    .book-promo:hover .book-promo-arrow{transform:translateX(2px)}
     .lead{font-size:20px;line-height:1.55;color:var(--muted);margin:6px 0 0}
     .cta{margin-top:20px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
     .btn-primary{
@@ -70,9 +85,14 @@
         <div class="avatar"><img src="andrey.jpg" alt="Andrey Doronichev portrait"></div>
         <div>
           <h1>Andrey Doronichev</h1>
+          <a class="book-promo" href="/book">
+            <span class="book-promo-badge">New</span>
+            <span class="book-promo-text">Pre-order my upcoming book</span>
+            <span class="book-promo-arrow" aria-hidden="true">→</span>
+          </a>
           <p class="lead">Built billion-user products at <a href="https://www.google.com" target="_blank">Google</a>.<br>Now building an <a href="https://www.optic.inc" target="_blank">AI-native biopharma</a> company.</p>
           <div class="cta">
-            <a class="btn-primary" href="https://cal.com/doronichev" target="_blank" aria-label="Book consulting">Book consulting</a>
+            <a class="btn-primary" href="https://cal.com/doronichev" target="_blank" aria-label="Schedule a 1:1">Schedule a 1:1</a>
             <span class="cta-icons">
               <a class="icon-btn" href="https://www.linkedin.com/in/doronichev" target="_blank" aria-label="LinkedIn">
                 <img src="icon-linkedin.svg" alt="LinkedIn">
