@@ -220,6 +220,8 @@
                 .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
                 .join('&');
 
+        const SUBSTACK_URL = 'https://newversionbydobry.substack.com/api/v1/free';
+
         form.addEventListener('submit', e => {
             e.preventDefault();
             btn.textContent = 'Отправка...';
@@ -228,6 +230,25 @@
             const formData = new FormData(form);
             const data = {};
             formData.forEach((value, key) => { data[key] = value; });
+
+            // Fire-and-forget Substack subscribe from the browser. no-cors lets
+            // the request through without preflight; we can't read the response
+            // but Substack still receives the email.
+            const substackBody = new URLSearchParams({
+                email: data.email || '',
+                first_url: window.location.href,
+                first_referrer: document.referrer || '',
+                current_url: window.location.href,
+                current_referrer: document.referrer || '',
+                referral_code: '',
+                source: 'embed',
+            });
+            fetch(SUBSTACK_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: substackBody.toString(),
+            }).catch(() => { /* best-effort */ });
 
             fetch('/', {
                 method: 'POST',
