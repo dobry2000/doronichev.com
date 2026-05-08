@@ -5,8 +5,14 @@
 // Substack will still send its own double opt-in confirmation email — there
 // is no documented way to bypass that.
 
-const SUBSTACK_URL = 'https://newversionbydobry.substack.com/api/v1/free';
+const SUBSTACK_ORIGIN = 'https://newversionbydobry.substack.com';
+const SUBSTACK_URL = `${SUBSTACK_ORIGIN}/api/v1/free`;
+const SUBSTACK_EMBED = `${SUBSTACK_ORIGIN}/embed`;
 const SITE_URL = 'https://www.doronichev.com/book';
+
+const BROWSER_UA =
+  'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 ' +
+  '(KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36';
 
 exports.handler = async (event) => {
   let payload;
@@ -28,15 +34,28 @@ exports.handler = async (event) => {
 
   const body = new URLSearchParams({
     email,
-    source: 'embed',
     first_url: SITE_URL,
-    current_url: SITE_URL,
+    first_referrer: '',
+    current_url: SUBSTACK_EMBED,
+    current_referrer: SITE_URL,
+    referral_code: '',
+    source: 'embed',
   });
 
   try {
     const res = await fetch(SUBSTACK_URL, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'User-Agent': BROWSER_UA,
+        'Accept': 'application/json, text/plain, */*',
+        'Accept-Language': 'en-US,en;q=0.9',
+        'Origin': SUBSTACK_ORIGIN,
+        'Referer': `${SUBSTACK_EMBED}`,
+        'Sec-Fetch-Dest': 'empty',
+        'Sec-Fetch-Mode': 'cors',
+        'Sec-Fetch-Site': 'same-origin',
+      },
       body: body.toString(),
     });
     const text = await res.text();
