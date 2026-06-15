@@ -157,6 +157,32 @@
             margin-top: 1rem;
         }
 
+        .substack-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 1.5rem;
+            padding: 10px 16px;
+            border-radius: 999px;
+            background: #fff;
+            border: 1px solid #e0e0e0;
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: border-color 0.2s ease, transform 0.12s ease;
+        }
+
+        .substack-link:hover {
+            border-color: var(--text-color);
+            transform: translateY(-1px);
+        }
+
+        .substack-link img {
+            width: 18px;
+            height: 18px;
+        }
+
         /* Адаптив для мобилок */
         @media (max-width: 900px) {
             .container {
@@ -202,10 +228,15 @@
                     <div id="success-msg">Спасибо! Вы в списке. Мы скоро свяжемся с вами.</div>
                 </form>
             </div>
+
+            <a class="substack-link" href="https://newversionbydobry.substack.com/" target="_blank" rel="noopener">
+                <img src="icon-substack.svg" alt="">
+                <span>Сообщество в Substack</span>
+            </a>
         </div>
 
         <div class="cover">
-            <img src="book_cover.png" alt="Обложка книги: Новая версия">
+            <img src="book_hardcover.png" alt="Обложка книги: Новая версия">
         </div>
     </div>
 
