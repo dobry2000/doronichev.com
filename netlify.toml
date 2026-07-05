@@ -1,3 +1,14 @@
 [build]
   publish = "."
-  functions = "netlify/functions"
+
+[[redirects]]
+  from = "/book"
+  to = "https://nv.doronichev.com"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/book.html"
+  to = "https://nv.doronichev.com"
+  status = 301
+  force = true

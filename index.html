@@ -23,21 +23,31 @@
       box-shadow:0 10px 30px rgba(0,0,0,.08)}
     .avatar img{width:100%;height:100%;object-fit:cover;display:block}
     h1{font-size:42px;line-height:1.05;margin:0 -2px 8px;font-weight:700;letter-spacing:-.02em}
-    .book-promo{
-      display:inline-flex;align-items:center;gap:8px;
-      padding:6px 12px 6px 6px;margin:0 0 14px;
-      background:#f5f3ff;border:1px solid #e9e4ff;border-radius:999px;
-      font-size:13px;font-weight:500;color:#4c1d95;letter-spacing:.01em;
-      transition:background .2s ease, border-color .2s ease, transform .12s ease;
+    .book-card{
+      display:flex;align-items:center;gap:32px;
+      margin:6px 0 30px;padding:24px 36px;border-radius:22px;
+      background:#fff;border:1px solid var(--line);color:var(--fg);
+      box-shadow:0 14px 40px rgba(0,0,0,.08);
+      transition:transform .15s ease, box-shadow .25s ease;
     }
-    .book-promo:hover{background:#ede9fe;border-color:#d8ceff;transform:translateY(-1px)}
-    .book-promo-badge{
-      display:inline-block;padding:2px 8px;border-radius:999px;
-      background:#7c3aed;color:#fff;font-size:11px;font-weight:700;
-      text-transform:uppercase;letter-spacing:.06em;
+    .book-card:hover{transform:translateY(-2px);box-shadow:0 22px 52px rgba(0,0,0,.13)}
+    .book-card-cover{width:210px;height:auto;flex-shrink:0;
+      transition:transform .25s ease}
+    .book-card:hover .book-card-cover{transform:scale(1.04) rotate(-1deg)}
+    .book-card-eyebrow{font-size:12px;font-weight:600;text-transform:uppercase;
+      letter-spacing:.16em;color:var(--muted);margin-bottom:10px}
+    .book-card-title{font-size:32px;font-weight:800;letter-spacing:-.01em;line-height:1.05}
+    .book-card-sub{font-size:17px;color:var(--muted);margin-top:8px}
+    .book-card-btn{display:inline-flex;align-items:center;gap:8px;margin-top:18px;
+      padding:11px 20px;border-radius:12px;background:var(--fg);color:#fff;
+      font-weight:700;font-size:15px;
+      transition:transform .12s ease, background .2s ease}
+    .book-card:hover .book-card-btn{transform:translateX(2px)}
+    @media (max-width:640px){
+      .book-card{flex-direction:column;text-align:center;gap:12px;padding:24px 22px}
+      .book-card-cover{width:220px}
+      .book-card-btn{margin-left:auto;margin-right:auto}
     }
-    .book-promo-arrow{font-weight:700;transition:transform .2s ease}
-    .book-promo:hover .book-promo-arrow{transform:translateX(2px)}
     .lead{font-size:20px;line-height:1.55;color:var(--muted);margin:6px 0 0}
     .cta{margin-top:20px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
     .btn-primary{
@@ -85,11 +95,6 @@
         <div class="avatar"><img src="andrey.jpg" alt="Andrey Doronichev portrait"></div>
         <div>
           <h1>Andrey Doronichev</h1>
-          <a class="book-promo" href="https://www.doronichev.com/book">
-            <span class="book-promo-badge">New</span>
-            <span class="book-promo-text">Pre-order my upcoming book</span>
-            <span class="book-promo-arrow" aria-hidden="true">→</span>
-          </a>
           <p class="lead">Built billion-user products at <a href="https://www.google.com" target="_blank">Google</a>.<br>Now building an <a href="https://www.optic.inc" target="_blank">AI-native biopharma</a> company.</p>
           <div class="cta">
             <a class="btn-primary" href="https://cal.com/doronichev" target="_blank" aria-label="Schedule a 1:1">Schedule a 1:1</a>
@@ -108,6 +113,16 @@
         </div>
       </div>
     </header>
+
+    <a class="book-card" href="https://nv.doronichev.com" target="_blank" rel="noopener">
+      <img class="book-card-cover" src="book_hardcover_web.jpg" alt="Обложка книги «Новая версия»">
+      <div>
+        <div class="book-card-eyebrow">Out now · My new book</div>
+        <div class="book-card-title">Новая версия</div>
+        <div class="book-card-sub">Измени себя, не изменяя себе</div>
+        <span class="book-card-btn">Get the book <span aria-hidden="true">→</span></span>
+      </div>
+    </a>
 
     <div class="logos" aria-label="Trusted by">
       <a href="https://www.google.com" target="_blank"><img src="google.png" alt="Google"></a>
